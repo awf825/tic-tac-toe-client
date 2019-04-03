@@ -1,1 +1,1 @@
-const config = require(./config)
+
