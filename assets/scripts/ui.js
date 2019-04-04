@@ -1,12 +1,16 @@
-/*const checkWinner = function (board) {
-if {
-  (board[0] === board[1]) && (board[1] === board[2]) ||
-  (board[0] === board[3]) && (board[3] === board[6]) ||
-  (board[0] === board[4]) && (board[4] === board[8]) ||
-  (board[0] === board[3]) && (board[3] === board[6]) ||
-  (board[1] === board[4]) && (board[4] === board[7]) ||
-  (board[2] === board[5]) && (board[5] === board[8]) ||
-  (board[2] === board[4]) && (board[4] === board[6]) ||
-  (board[3] === board[4]) && (board[4] === board[5]) ||
-  (board[3] === board[4]) && (board[4] === board[5]) }
-}*/
+// const events = require('./events.js')
+
+/* const checkWinner = function (board) {
+  if (
+    ((events.board[0] === events.board[1]) && (events.board[1] === events.board[2])) ||
+    ((events.board[0] === events.board[3]) && (events.board[3] === events.board[6])) ||
+    ((events.board[0] === events.board[4]) && (events.board[4] === events.board[8])) ||
+    ((events.board[0] === events.board[3]) && (events.board[3] === events.board[6])) ||
+    ((events.board[1] === events.board[4]) && (events.board[4] === events.board[7])) ||
+    ((events.board[2] === events.board[5]) && (events.board[5] === events.board[8])) ||
+    ((events.board[2] === events.board[4]) && (events.board[4] === events.board[6])) ||
+    ((events.board[3] === events.board[4]) && (events.board[4] === events.board[5])) ||
+    ((events.board[3] === events.board[4]) && (events.board[4] === events.board[5]))) {
+    console.log(`${events.currentPlayer} wins!`)
+  }
+} */
