@@ -25,13 +25,13 @@ const checkForWin = function () {
     $('#message-box2').text(`${currentPlayer} wins!`)
   } else if (board.every(index => index !== '')) {
     gameOver = true
-    $('#message-box2').text('draw!')
+    $('#message-box2').text('Draw!')
   }
 }
 const endGame = function () {
   if (gameOver === true) {
     $('.square').off()
-    $('#message-box').hide(750)
+    $('#message-box').hide(200)
   }
 }
 
