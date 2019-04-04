@@ -6,6 +6,7 @@ const turn = function () {
   if (currentPlayer === 'O') {
     currentPlayer = 'X'
   } else currentPlayer = 'O'
+  $('#message-box').text(`${currentPlayer}, it's your turn!`)
 }
 
 const board = ['', '', '', '', '', '', '', '', '']
@@ -21,28 +22,37 @@ const checkForWin = function () {
     (board[0] === board[4] && board[4] === board[8] && board[0] === currentPlayer) ||
     (board[2] === board[4] && board[4] === board[6] && board[2] === currentPlayer)) {
     gameOver = true
-    alert(`${currentPlayer} wins!`)
+    $('#message-box2').text(`${currentPlayer} wins!`)
   } else if (board.every(index => index !== '')) {
     gameOver = true
-    alert('draw!')
+    $('#message-box2').text('draw!')
+  }
+}
+const endGame = function () {
+  if (gameOver === true) {
+    $('.square').off()
+    $('#message-box').hide(750)
   }
 }
 
 const onClick = function (event) {
   const currentBox = $(event.target).data('id')
-  const content = $(event.target).text()
-  if (content === '' && currentPlayer === 'X') {
+  const index = $(event.target).text()
+  if (index === '' && currentPlayer === 'X') {
     $(event.target).text(currentPlayer)
     board[currentBox] = currentPlayer
     checkForWin(board, currentPlayer)
+    endGame()
     turn()
-  } else if (content === '' && currentPlayer === 'O') {
+  } else if (index === '' && currentPlayer === 'O') {
     $(event.target).text(currentPlayer)
     board[currentBox] = currentPlayer
     checkForWin(board, currentPlayer)
+    endGame()
     turn()
+  } else if (index !== '') {
+    $('#message-box').text('Space taken.')
   }
-  console.log(board)
 }
 
 const addEventHandler = function () {

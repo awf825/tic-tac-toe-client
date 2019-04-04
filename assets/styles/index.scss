@@ -3,10 +3,15 @@
 .square {
 background: #ff0000;
 border: solid #000000 1px;
-color: #008000;
 font-size: 5vw;
 text-align: center;
 color: black;
 height: 100px;
 width: 100px;
+}
+
+.display {
+height: 500px;
+text-align: justify;
+width: 500px;
 }
