@@ -13,6 +13,9 @@
     </head>
     <body>
       <h1>Oh No, Tic Tac Toe</h1>
+    <div id="message-box3"></div>
+    <div id="message-box4"></div>
+    <div id="message-box5"></div>
     <form id="sign-up">
       <input type="text" name="credentials[email]" placeholder="Email" required>
       <input type="password" name="credentials[password]" placeholder="Password" required>
@@ -37,9 +40,6 @@
       <input type="submit" value="Sign Out">
     </form>
     <br>
-    <input id="create" type="submit" value="New Game">
-    <br>
-
     <div class="container">
        <div class="row tic">
          <div class="col-4 square tic-zero" data-id="0"></div>
@@ -53,7 +53,11 @@
          <div class="col-4 square tic-eight" data-id="8"></div>
        </div>
      </div>
-
+     <br>
+    <form id="create">
+     <input type="submit" value="New Game">
+    </form>
+     <br>
      <div class="display" id="message-box"></div>
      <div class="display" id="message-box2"></div>
 

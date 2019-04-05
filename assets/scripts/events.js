@@ -1,7 +1,3 @@
-const ui = require('./ui.js')
-
-// const api = require(./api.js)
-// const getFormFields = require(../../lib/get-form-fields.js)
 let currentPlayer = 'X'
 const turn = function () {
   if (currentPlayer === 'O') {
@@ -37,13 +33,14 @@ const endGame = function () {
   }
 }
 
-const newGame = function () {
+const onNewGame = function () {
   $('.square').text('')
-  $('#message-box1').text('')
   $('#message-box2').text('')
   gameOver = false
   board = ['', '', '', '', '', '', '', '', '']
   $('.container').show(1000)
+  turn()
+  $('#message-box').show('')
 }
 
 const onClick = function (event) {
@@ -68,11 +65,10 @@ const onClick = function (event) {
 
 const addEventHandler = function () {
   $('.square').on('click', onClick)
-  $('#create').on('click', newGame)
+  $('#create').on('click', onNewGame)
 }
 
 module.exports = {
   onClick,
   addEventHandler
-
 }

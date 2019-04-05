@@ -1,15 +1,19 @@
 const store = require('./../store')
 
 const signUpSuccess = function (data) {
-  console.log('sign up success ran with the data: ', data)
+  $('#message-box3').text('Sign up successful!')
+  $('#sign-up').hide(600)
 }
 const signUpFailure = function (data) {
   console.log('sign up failure ran with the data: ', data)
 }
 
 const signInSuccess = function (data) {
-  console.log('sign in success ran with the data: ', data)
+  $('#message-box4').text('Sign in successful!')
   store.user = data.user
+  $('#sign-in').hide(600)
+  $('#sign-up').hide(600)
+  $('#message-box3').hide(600)
 }
 
 const signInFailure = function (data) {
@@ -17,7 +21,10 @@ const signInFailure = function (data) {
 }
 
 const changePasswordSuccess = function () {
-  console.log('change password success')
+  $('#message-box5').text('Password change successful!')
+  $('#change-password').hide(600)
+  $('#message-box3').hide(600)
+  $('#message-box4').hide(600)
 }
 
 const changePasswordFailure = function () {
@@ -34,6 +41,14 @@ const signOutFailure = function () {
   console.log('sign out failed...')
 }
 
+const createGameSuccess = function () {
+  console.log('create game success')
+}
+
+const createGameFailure = function () {
+  console.log('create game failed')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -42,5 +57,5 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
 }
