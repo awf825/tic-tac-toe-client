@@ -10,7 +10,7 @@ const turn = function () {
   $('#message-box').text(`${currentPlayer}, it's your turn!`)
 }
 
-const board = ['', '', '', '', '', '', '', '', '']
+let board = ['', '', '', '', '', '', '', '', '']
 let gameOver = false
 const checkForWin = function () {
   if (
@@ -29,11 +29,21 @@ const checkForWin = function () {
     $('#message-box2').text('Draw!')
   }
 }
+
 const endGame = function () {
   if (gameOver === true) {
-    $('.square').off()
-    $('#message-box').hide(200)
+    $('.container').hide()
+    $('#message-box').hide(1000)
   }
+}
+
+const newGame = function () {
+  $('.square').text('')
+  $('#message-box1').text('')
+  $('#message-box2').text('')
+  gameOver = false
+  board = ['', '', '', '', '', '', '', '', '']
+  $('.container').show(1000)
 }
 
 const onClick = function (event) {
@@ -58,7 +68,9 @@ const onClick = function (event) {
 
 const addEventHandler = function () {
   $('.square').on('click', onClick)
+  $('#create').on('click', newGame)
 }
+
 module.exports = {
   onClick,
   addEventHandler
