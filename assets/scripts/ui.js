@@ -2,14 +2,17 @@ const store = require('./store.js')
 
 const createGameSuccess = function (data) {
   store.game = data.game
-  console.log('create game success', data)
 }
 
-const createGameFailure = function () {
-  console.log('create game failed')
+const updateGameSuccess = function (data) {
+  console.log('update game success', data)
 }
 
+const updateGameFailure = function () {
+  console.log('update game failure')
+}
 module.exports = {
   createGameSuccess,
-  createGameFailure
+  updateGameSuccess,
+  updateGameFailure
 }

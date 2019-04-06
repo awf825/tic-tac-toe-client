@@ -1,3 +1,5 @@
+const api = require('./api')
+
 let currentPlayer = 'X'
 const turn = function () {
   if (currentPlayer === 'O') {
@@ -45,20 +47,22 @@ const onNewGame = function () {
 
 const onClick = function (event) {
   const currentBox = $(event.target).data('id')
-  const index = $(event.target).text()
-  if (index === '' && currentPlayer === 'X') {
+  const emptyBox = $(event.target).text()
+  if (emptyBox === '' && currentPlayer === 'X') {
+    $(event.target).text(currentPlayer)
+    board[currentBox] = currentPlayer
+    checkForWin(currentBox, currentPlayer, gameOver)
+    api.updateGame(currentBox, currentPlayer, gameOver)
+    endGame()
+    turn()
+  } else if (emptyBox === '' && currentPlayer === 'O') {
     $(event.target).text(currentPlayer)
     board[currentBox] = currentPlayer
     checkForWin(board, currentPlayer)
+    api.updateGame(currentBox, currentPlayer, gameOver)
     endGame()
     turn()
-  } else if (index === '' && currentPlayer === 'O') {
-    $(event.target).text(currentPlayer)
-    board[currentBox] = currentPlayer
-    checkForWin(board, currentPlayer)
-    endGame()
-    turn()
-  } else if (index !== '') {
+  } else if (emptyBox !== '') {
     $('#message-box').text('Space taken.')
   }
 }
