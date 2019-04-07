@@ -40,8 +40,19 @@
       <input type="submit" value="Sign Out">
     </form>
     <br>
-    <div class="container">
-       <div class="row tic">
+    <form id="create">
+      <input type="submit" value="New Game">
+    </form>
+    <br>
+    <form id="get-games">
+      <input type="submit" value="Get Games">
+    </form>
+    <div class="display" id="message-box"></div>
+    <div class="display" id="message-box2"></div>
+    <div data-cell-index='0'></div>
+    <br>
+    <div class="embed-responsive embed-responsive-1by1 gamearea">
+       <div class="embed-responsive-item gameboard">
          <div class="col-4 square tic-zero" data-id="0"></div>
          <div class="col-4 square tic-one" data-id="1"></div>
          <div class="col-4 square tic-two" data-id="2"></div>
@@ -54,12 +65,5 @@
        </div>
      </div>
      <br>
-    <form id="create">
-     <input type="submit" value="New Game">
-    </form>
-     <br>
-     <div class="display" id="message-box"></div>
-     <div class="display" id="message-box2"></div>
-     <div data-cell-index='0'></div>
     </body>
 </html>

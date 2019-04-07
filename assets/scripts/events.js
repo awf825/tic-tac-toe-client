@@ -30,7 +30,7 @@ const checkForWin = function () {
 
 const endGame = function () {
   if (gameOver === true) {
-    $('.container').hide()
+    $('.gamearea').hide()
     $('#message-box').hide(1000)
   }
 }
@@ -40,9 +40,9 @@ const onNewGame = function () {
   $('#message-box2').text('')
   gameOver = false
   board = ['', '', '', '', '', '', '', '', '']
-  $('.container').show(1000)
-  turn()
+  $('.gamearea').show(1000)
   $('#message-box').show('')
+  currentPlayer = 'X'
 }
 
 const onClick = function (event) {
@@ -51,10 +51,11 @@ const onClick = function (event) {
   if (emptyBox === '' && currentPlayer === 'X') {
     $(event.target).text(currentPlayer)
     board[currentBox] = currentPlayer
-    checkForWin(currentBox, currentPlayer, gameOver)
+    checkForWin(board, currentPlayer)
     api.updateGame(currentBox, currentPlayer, gameOver)
     endGame()
     turn()
+    $('#message-box').text(`${currentPlayer}, it's your turn!`)
   } else if (emptyBox === '' && currentPlayer === 'O') {
     $(event.target).text(currentPlayer)
     board[currentBox] = currentPlayer
@@ -62,6 +63,7 @@ const onClick = function (event) {
     api.updateGame(currentBox, currentPlayer, gameOver)
     endGame()
     turn()
+    $('#message-box').text(`${currentPlayer}, it's your turn!`)
   } else if (emptyBox !== '') {
     $('#message-box').text('Space taken.')
   }

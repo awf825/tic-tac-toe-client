@@ -9,6 +9,14 @@ const onCreateGame = function (event) {
     .then(ui.createGameSuccess)
 }
 
+const onFindGame = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.findGame(data)
+    .then(ui.findGameSuccess)
+}
+
 module.exports = {
-  onCreateGame
+  onCreateGame,
+  onFindGame
 }

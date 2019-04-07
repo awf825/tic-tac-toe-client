@@ -11,8 +11,13 @@ const updateGameSuccess = function (data) {
 const updateGameFailure = function () {
   console.log('update game failure')
 }
+
+const findGameSuccess = function (data) {
+  console.log('game found with data:', data)
+}
 module.exports = {
   createGameSuccess,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  findGameSuccess
 }

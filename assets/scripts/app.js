@@ -9,4 +9,5 @@ $(() => {
   $('#change-password').on('submit', auth.onChangePassword)
   $('#sign-out').on('submit', auth.onSignOut)
   $('#create').on('submit', gamefiles.onCreateGame)
+  $('#get-games').on('submit', gamefiles.onFindGame)
 })

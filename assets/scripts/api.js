@@ -29,7 +29,19 @@ const updateGame = function (index, value, over) {
   })
 }
 
+const findGame = function (data) {
+  return $.ajax({
+    url: config.apiUrl + `games/${store.game.id}`,
+    method: 'GET',
+    headers: {
+      authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createGame,
-  updateGame
+  updateGame,
+  findGame
 }
