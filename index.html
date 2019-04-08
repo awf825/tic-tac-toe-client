@@ -13,14 +13,10 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
-    <div class="display">
-      <div id="message-box"></div>
-      <div id="message-box2"></div>
-      <div id="message-box3"></div>
-      <div id="message-box4"></div>
-      <div id="message-box5"></div>
-      <div id="message-box6"></div>
-    </div>
+
+    <div class="display" id="message-box"></div>
+    <div class="display" id="message-box-endgame"></div>
+
       <div class="form">
         <form id="sign-up">
           <input type="text" name="credentials[email]" placeholder="Email" required>
@@ -37,21 +33,7 @@
         </form>
       </div>
     <div data-cell-index='0'></div>
-    <br>
-    <div class="embed-responsive embed-responsive-1by1 gamearea">
-      <div class="embed-responsive-item gameboard">
-        <div class="col-4 square tic-zero" data-id="0"></div>
-        <div class="col-4 square tic-one" data-id="1"></div>
-        <div class="col-4 square tic-two" data-id="2"></div>
-        <div class="col-4 square tic-three" data-id="3"></div>
-        <div class="col-4 square tic-four" data-id="4"></div>
-        <div class="col-4 square tic-five" data-id="5"></div>
-        <div class="col-4 square tic-six" data-id="6"></div>
-        <div class="col-4 square tic-seven" data-id="7"></div>
-        <div class="col-4 square tic-eight" data-id="8"></div>
-      </div>
-    </div>
-    <br>
+
     <div class="hide">
       <form id="change-password">
         <input type="password" name="passwords[old]" placeholder="old password">
@@ -70,6 +52,19 @@
      <form id="get-games">
        <input type="submit" value="Get Games">
      </form>
+     <div class="embed-responsive embed-responsive-1by1 gamearea">
+       <div class="embed-responsive-item gameboard">
+         <div class="col-4 square tic-zero" data-id="0"></div>
+         <div class="col-4 square tic-one" data-id="1"></div>
+         <div class="col-4 square tic-two" data-id="2"></div>
+         <div class="col-4 square tic-three" data-id="3"></div>
+         <div class="col-4 square tic-four" data-id="4"></div>
+         <div class="col-4 square tic-five" data-id="5"></div>
+         <div class="col-4 square tic-six" data-id="6"></div>
+         <div class="col-4 square tic-seven" data-id="7"></div>
+         <div class="col-4 square tic-eight" data-id="8"></div>
+       </div>
+     </div>
    </div>
      <br>
     </body>
