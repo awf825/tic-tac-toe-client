@@ -43,6 +43,7 @@ const onNewGame = function () {
   gameOver = false
   board = ['', '', '', '', '', '', '', '', '']
   $('#message-box').show('')
+  $('#message-box2').show()
   currentPlayer = 'O'
   turn()
 }

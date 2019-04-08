@@ -1,4 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
+body {
+  background-color: #cce1e9;
+
+}
+
 
 .gamearea {
   display: none;
@@ -18,7 +23,7 @@
     background-color: white;
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
-    color: #000000;
+    color: #036992;
     display: flex;
     font-size: 12vh;
     justify-content: center;
