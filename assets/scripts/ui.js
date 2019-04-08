@@ -5,15 +5,16 @@ const createGameSuccess = function (data) {
 }
 
 const updateGameSuccess = function (data) {
-  console.log('update game success', data)
 }
 
 const updateGameFailure = function () {
-  console.log('update game failure')
 }
 
-const findGameSuccess = function (data) {
-  console.log('game found with data:', data)
+const findGameSuccess = function (response) {
+  const gamesPlayed = response.games.length
+  $('#message-box6').text(`You have played ${gamesPlayed} games.`)
+  $('#message-box6').hide(5000)
+  $('#message-box6').show()
 }
 module.exports = {
   createGameSuccess,

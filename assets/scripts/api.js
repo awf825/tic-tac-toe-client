@@ -29,14 +29,13 @@ const updateGame = function (index, value, over) {
   })
 }
 
-const findGame = function (data) {
+const findGame = function () {
   return $.ajax({
-    url: config.apiUrl + `games/${store.game.id}`,
+    url: config.apiUrl + '/games',
     method: 'GET',
     headers: {
       authorization: 'Token token=' + store.user.token
-    },
-    data: data
+    }
   })
 }
 

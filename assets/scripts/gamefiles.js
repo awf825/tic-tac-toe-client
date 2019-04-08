@@ -11,8 +11,7 @@ const onCreateGame = function (event) {
 
 const onFindGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.findGame(data)
+  api.findGame()
     .then(ui.findGameSuccess)
 }
 

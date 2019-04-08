@@ -1,10 +1,10 @@
 const api = require('./api')
 
-let currentPlayer = 'X'
+let currentPlayer = 'O'
 const turn = function () {
-  if (currentPlayer === 'O') {
-    currentPlayer = 'X'
-  } else currentPlayer = 'O'
+  if (currentPlayer === 'X') {
+    currentPlayer = 'O'
+  } else currentPlayer = 'X'
   $('#message-box').text(`${currentPlayer}, it's your turn!`)
 }
 
@@ -32,17 +32,19 @@ const endGame = function () {
   if (gameOver === true) {
     $('.gamearea').hide()
     $('#message-box').hide(1000)
+    currentPlayer = 'X'
   }
 }
 
 const onNewGame = function () {
+  $('.gamearea').show(1000)
   $('.square').text('')
   $('#message-box2').text('')
   gameOver = false
   board = ['', '', '', '', '', '', '', '', '']
-  $('.gamearea').show(1000)
   $('#message-box').show('')
-  currentPlayer = 'X'
+  currentPlayer = 'O'
+  turn()
 }
 
 const onClick = function (event) {

@@ -1,6 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 .gamearea {
+  display: none;
   margin: auto;
   max-height: 55vh;
   max-width: 55vh;
@@ -13,7 +14,7 @@
   flex-wrap: wrap;
 
   > .square {
-    align-items: center;
+    align-items: right;
     background-color: white;
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
@@ -40,6 +41,18 @@ h1 {
   text-align: center;
 }
 
+.form {
+  font-size: 15px;
+  text-align: center;
+}
+
 .display {
-  font-size: 60px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+  font-size: 15px;
+  text-align: center;
 }
