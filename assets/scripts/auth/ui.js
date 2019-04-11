@@ -31,12 +31,17 @@ const changePasswordSuccess = function () {
   $('.display').show()
   $('#message-box').text('Password change successful!')
   $('#message-box-endgame').text('')
-  $('#message-box').hide(1600)
+  setTimeout(function () {
+    $('#message-box').text('')
+  }, 2000)
   $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {
   $('#message-box').text('Something went wrong, try again.')
+  setTimeout(function () {
+    $('#message-box').text('')
+  }, 2000)
   $('#change-password').trigger('reset')
 }
 
@@ -44,6 +49,9 @@ const signOutSuccess = function (data) {
   $('#sign-up').show(1200)
   $('#sign-in').show(1200)
   $('#message-box-endgame').hide(1200)
+  setTimeout(function () {
+    $('#message-box').text('')
+  }, 500)
   $('.hide').hide()
   $('form').trigger('reset')
   store.user = null
