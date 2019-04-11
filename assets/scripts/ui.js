@@ -6,6 +6,7 @@ const createGameSuccess = function (data) {
 }
 
 const updateGameSuccess = function (data) {
+  console.log('data update success with: ', data)
 }
 
 const updateGameFailure = function () {

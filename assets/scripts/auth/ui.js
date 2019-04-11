@@ -32,10 +32,12 @@ const changePasswordSuccess = function () {
   $('#message-box').text('Password change successful!')
   $('#message-box-endgame').text('')
   $('#message-box').hide(1600)
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {
   $('#message-box').text('Something went wrong, try again.')
+  $('#change-password').trigger('reset')
 }
 
 const signOutSuccess = function (data) {
