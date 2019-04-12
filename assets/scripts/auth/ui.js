@@ -4,27 +4,33 @@ const signUpSuccess = function (data) {
   $('.display').show()
   $('#message-box').text('Sign up successful!')
   $('#message-box-endgame').text('')
+  setTimeout(function () {
+    $('#message-box').text('')
+  }, 2000)
   $('#sign-up').hide(1600)
-  $('#message-box').hide(1600)
 }
 
 const signUpFailure = function (data) {
   $('#message-box').text('Something went wrong, try again.')
+  $('#sign-up').trigger('reset')
 }
 
 const signInSuccess = function (data) {
   $('.display').show()
   $('#message-box').text('Sign in successful!')
   $('#message-box-endgame').text('')
+  setTimeout(function () {
+    $('#message-box').text('')
+  }, 2000)
   store.user = data.user
   $('.hide').show()
   $('#sign-in').hide(1600)
   $('#sign-up').hide(1600)
-  $('#message-box').hide(1600)
 }
 
 const signInFailure = function (data) {
   $('#message-box').text('Something went wrong, try again.')
+  $('#sign-in').trigger('reset')
 }
 
 const changePasswordSuccess = function () {
