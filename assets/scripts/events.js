@@ -46,23 +46,22 @@ const onNewGame = function () {
   turn()
 }
 
+const gameFlow = (cb) => {
+  $(event.target).text(currentPlayer)
+  board[cb] = currentPlayer
+  checkForWin(board, currentPlayer)
+  api.updateGame(cb, currentPlayer, gameOver)
+  endGame()
+  turn()
+}
+
 const onClick = function (event) {
   const currentBox = $(event.target).data('id')
   const emptyBox = $(event.target).text()
   if (emptyBox === '' && currentPlayer === 'X') {
-    $(event.target).text(currentPlayer)
-    board[currentBox] = currentPlayer
-    checkForWin(board, currentPlayer)
-    api.updateGame(currentBox, currentPlayer, gameOver)
-    endGame()
-    turn()
+    gameFlow(currentBox)
   } else if (emptyBox === '' && currentPlayer === 'O') {
-    $(event.target).text(currentPlayer)
-    board[currentBox] = currentPlayer
-    checkForWin(board, currentPlayer)
-    api.updateGame(currentBox, currentPlayer, gameOver)
-    endGame()
-    turn()
+    gameFlow(currentBox)
   } else if (emptyBox !== '') {
     $('#message-box').text('Space taken.')
   }
