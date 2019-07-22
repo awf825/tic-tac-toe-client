@@ -1,6 +1,10 @@
 const api = require('./api')
+const v = require('./variable')
 
+let board = ['', '', '', '', '', '', '', '', '']
 let currentPlayer = 'O'
+let gameOver = false
+
 const turn = function () {
   if (currentPlayer === 'X') {
     currentPlayer = 'O'
@@ -8,21 +12,11 @@ const turn = function () {
   $('#message-box').text(`${currentPlayer}, it's your turn!`)
 }
 
-let board = ['', '', '', '', '', '', '', '', '']
-let gameOver = false
 const checkForWin = function () {
-  if (
-    (board[0] === board[1] && board[1] === board[2] && board[0] === currentPlayer) ||
-    (board[3] === board[4] && board[4] === board[5] && board[3] === currentPlayer) ||
-    (board[6] === board[7] && board[7] === board[8] && board[6] === currentPlayer) ||
-    (board[0] === board[3] && board[3] === board[6] && board[0] === currentPlayer) ||
-    (board[1] === board[4] && board[4] === board[7] && board[1] === currentPlayer) ||
-    (board[2] === board[5] && board[5] === board[8] && board[2] === currentPlayer) ||
-    (board[0] === board[4] && board[4] === board[8] && board[0] === currentPlayer) ||
-    (board[2] === board[4] && board[4] === board[6] && board[2] === currentPlayer)) {
+  if (v.winChecks(board, currentPlayer)) {
     gameOver = true
     $('#message-box-endgame').text(`${currentPlayer} wins!`)
-  } else if (board.every(index => index !== '')) {
+  } else if (board.every(i => i !== '')) {
     gameOver = true
     $('#message-box-endgame').text('Draw!')
   }
