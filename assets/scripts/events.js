@@ -1,5 +1,7 @@
 const api = require('./api')
 const v = require('./variable')
+const animations = require('./animations')
+const messages = require('./messages')
 
 let board = ['', '', '', '', '', '', '', '', '']
 let currentPlayer = 'O'
@@ -8,32 +10,29 @@ let gameOver = false
 const turn = function () {
   if (currentPlayer === 'X') {
     currentPlayer = 'O'
-  } else currentPlayer = 'X'
-  $('#message-box').text(`${currentPlayer}, it's your turn!`)
+  } else (currentPlayer = 'X')
+  messages.promptTurn(currentPlayer)
 }
 
 const checkForWin = function () {
   if (v.winChecks(board, currentPlayer)) {
     gameOver = true
-    $('#message-box-endgame').text(`${currentPlayer} wins!`)
+    messages.win(currentPlayer)
   } else if (board.every(i => i !== '')) {
     gameOver = true
-    $('#message-box-endgame').text('Draw!')
+    messages.tie()
   }
 }
 
 const endGame = function () {
   if (gameOver === true) {
-    $('.gamearea').hide()
-    $('#message-box').hide()
+    animations.gameOver()
     currentPlayer = 'X'
   }
 }
 
 const onNewGame = function () {
-  $('.gamearea').show(1000)
-  $('.square').text('')
-  $('#message-box-endgame').text('')
+  animations.newGame()
   gameOver = false
   board = ['', '', '', '', '', '', '', '', '']
   currentPlayer = 'O'
@@ -57,7 +56,7 @@ const onClick = function (event) {
   } else if (emptyBox === '' && currentPlayer === 'O') {
     gameFlow(currentBox)
   } else if (emptyBox !== '') {
-    $('#message-box').text('Space taken.')
+    messages.spaceTaken()
   }
 }
 
