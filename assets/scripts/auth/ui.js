@@ -1,70 +1,43 @@
 const store = require('./../store')
+const animations = require('./../animations')
+const messages = require('./../messages')
 
 const signUpSuccess = function (data) {
-  $('.display').show()
-  $('#message-box').text('Sign up successful!')
-  $('#message-box-endgame').text('')
-  setTimeout(function () {
-    $('#message-box').text('')
-  }, 2000)
-  $('#sign-up').hide(1600)
+  animations.showDisplay()
+  messages.signUpSuccess()
 }
 
 const signUpFailure = function (data) {
-  $('#message-box').text('Something went wrong, try again.')
-  $('#sign-up').trigger('reset')
+  messages.signUpFailure()
 }
 
 const signInSuccess = function (data) {
-  $('.display').show()
-  $('#message-box').text('Sign in successful!')
-  $('#message-box-endgame').text('')
-  setTimeout(function () {
-    $('#message-box').text('')
-  }, 2000)
+  animations.showDisplay()
+  messages.signInSuccess()
   store.user = data.user
-  $('.hide').show()
-  $('#sign-in').hide(1600)
-  $('#sign-up').hide(1600)
+  animations.showGameOptions()
 }
 
 const signInFailure = function (data) {
-  $('#message-box').text('Something went wrong, try again.')
-  $('#sign-in').trigger('reset')
+  messages.signInFailure()
 }
 
 const changePasswordSuccess = function () {
-  $('.display').show()
-  $('#message-box').text('Password change successful!')
-  $('#message-box-endgame').text('')
-  setTimeout(function () {
-    $('#message-box').text('')
-  }, 2000)
-  $('#change-password').trigger('reset')
+  animations.showDisplay()
+  messages.changePasswordSuccess()
 }
 
 const changePasswordFailure = function () {
-  $('#message-box').text('Something went wrong, try again.')
-  setTimeout(function () {
-    $('#message-box').text('')
-  }, 2000)
-  $('#change-password').trigger('reset')
+  messages.changePasswordFailure()
 }
 
 const signOutSuccess = function (data) {
-  $('#sign-up').show(1200)
-  $('#sign-in').show(1200)
-  $('#message-box-endgame').hide(1200)
-  setTimeout(function () {
-    $('#message-box').text('')
-  }, 500)
-  $('.hide').hide()
-  $('form').trigger('reset')
+  animations.signOutSuccess()
   store.user = null
 }
 
 const signOutFailure = function () {
-  $('#message-box').text('Something went wrong, try again.')
+  messages.signOutFailure()
 }
 module.exports = {
   signUpSuccess,
